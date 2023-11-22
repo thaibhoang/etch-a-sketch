@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-sketch</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <header><h1>Etch-a-sketch</h1></header>
+    <main>
+        <div class="control">
+            <div>
+                <input type="color" id="penColor">
+                <label for="penColor">Pen Color</label>
+            </div> 
+            <div > 
+                <input id="gridSize" type="range" min="1" max="60" value="1">
+                <div>Grid size: 1x1</div>
+            </div>                       
+        </div>
+        <div class="gridContainer">
+            <div style='height: 600px; width: 600px; border: 1px solid black; margin: 0; padding: 0;'></div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
