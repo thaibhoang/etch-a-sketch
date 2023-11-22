@@ -1,6 +1,16 @@
 const gridSize = document.querySelector('#gridSize');
 let size = 16;
 const gridContainer = document.querySelector('.gridContainer');
+const queryForColor = document.querySelector('#penColor');
+let penColor = queryForColor.value;
+queryForColor.addEventListener('change', () => {
+    penColor = queryForColor.value;
+});
+
+let mouseDown = false;
+document.body.addEventListener('mousedown', () => {mouseDown = true;})
+document.body.addEventListener('mouseup', () => {mouseDown = false;})
+
 gridSize.addEventListener('mouseup', (event) => {
     size = event.target.value
     gridSize.nextElementSibling.textContent = `Grid size: ${size} x ${size}`;
@@ -21,4 +31,12 @@ function removeAllChildNodes(node) {
         node.removeChild(node.firstChild);
     }
 }
+
+gridContainer.addEventListener('mouseover', (event) => {
+    if (!mouseDown) return;
+    let divTarget = event.target;
+    if (divTarget.id != 'container') {
+        divTarget.style.backgroundColor = `${penColor}`;
+    }
+});
 
